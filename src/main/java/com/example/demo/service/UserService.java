@@ -7,6 +7,8 @@ import com.example.demo.dto.UserSearchRequest;
 import com.example.demo.entity.User;
 import com.example.demo.repository.UserMapper;
 
+import java.util.ArrayList;
+
 /**
  * ユーザー情報 Service
  */
@@ -25,5 +27,9 @@ public class UserService {
      */
     public User search(UserSearchRequest userSearchRequest) {
         return userMapper.search(userSearchRequest);
+    }
+
+    public ArrayList<User> searchAll(){
+        return userMapper.searchAll();
     }
 }

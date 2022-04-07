@@ -17,6 +17,9 @@
     <div>
         <input type="submit" value="検索" style="width: 100px;" />
     </div>
+    <div>
+        <input type="submit" value="全て検索" style="width: 100px;" />
+    </div>
     <br />
 </form>
 <div th:if="${userinfo}">
@@ -34,6 +37,9 @@
             <td th:text="*{phone}"></td>
         </tr>
     </table>
+</div>
+<div th:unless="${userinfo}">
+    <p th:text="#{errormessage}"></p>
 </div>
 </body>
 </html>

@@ -6,4 +6,7 @@
     <select id="search" resultType="com.example.demo.entity.User">
         SELECT * FROM user WHERE id = #{id}
     </select>
+    <select id="searchAll" resultType="com.example.demo.entity.User">
+        SELECT * FROM user
+    </select>
 </mapper>
