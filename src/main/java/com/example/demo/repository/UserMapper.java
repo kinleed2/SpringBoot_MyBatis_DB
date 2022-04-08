@@ -6,6 +6,7 @@ import com.example.demo.dto.UserSearchRequest;
 import com.example.demo.entity.User;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * ユーザー情報 Mapper
@@ -18,5 +19,5 @@ public interface UserMapper {
      * @return ユーザー情報
      */
     User search(UserSearchRequest user);
-    ArrayList<User> searchAll();
+    List<User> searchAll();
 }

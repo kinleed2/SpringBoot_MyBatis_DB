@@ -12,6 +12,9 @@ import com.example.demo.dto.UserSearchRequest;
 import com.example.demo.entity.User;
 import com.example.demo.service.UserService;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * ユーザー情報 Controller
  */
@@ -43,6 +46,18 @@ public class UserController {
     public String search(@ModelAttribute UserSearchRequest userSearchRequest, Model model) {
         User user = userService.search(userSearchRequest);
         model.addAttribute("userinfo", user);
+        return "user/search";
+    }
+
+    /**
+     * 全てのユーザー情報検索
+     * @param model Model
+     * @return 全てのユーザー情報画面
+     */
+    @RequestMapping(value = "/user/all_search", method = RequestMethod.POST)
+    public String searchAll(Model model){
+        List<User> users = userService.searchAll();
+        model.addAttribute("usersinfo",users);
         return "user/search";
     }
 }
