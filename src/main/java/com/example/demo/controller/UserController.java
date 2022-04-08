@@ -26,6 +26,8 @@ public class UserController {
     @Autowired
     UserService userService;
 
+    String msg = "";
+
     /**
      * ユーザー情報検索画面を表示
      * @param model Model
@@ -33,6 +35,7 @@ public class UserController {
      */
     @GetMapping(value = "/user/search")
     public String displaySearch(Model model) {
+        model.addAttribute("msg",msg);
         return "user/search";
     }
 
