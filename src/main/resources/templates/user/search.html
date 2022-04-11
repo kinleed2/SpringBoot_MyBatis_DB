@@ -59,8 +59,10 @@
 </div>
 
 <div>
-    <label style="color: red" th:text="${msg}"></label>
+    <label th:if="${userinfo == null}? 'display:none': 'style="color: red" th:text="#{errormessage} '"></label>
 </div>
+
+
 
 </body>
 </html>

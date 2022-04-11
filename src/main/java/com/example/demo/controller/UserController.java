@@ -26,7 +26,7 @@ public class UserController {
     @Autowired
     UserService userService;
 
-    String msg = "";
+    boolean showMessage = false;
 
     /**
      * ユーザー情報検索画面を表示
@@ -35,7 +35,7 @@ public class UserController {
      */
     @GetMapping(value = "/user/search")
     public String displaySearch(Model model) {
-        model.addAttribute("msg",msg);
+
         return "user/search";
     }
 
@@ -43,12 +43,14 @@ public class UserController {
      * ユーザー情報検索
      * @param userSearchRequest リクエストデータ
      * @param model Model
-     * @return ユーザー情報一覧画面
+     * @return ユーザー情報一覧画面showMessageFlag
      */
     @RequestMapping(value = "/user/id_search", method = RequestMethod.POST)
     public String search(@ModelAttribute UserSearchRequest userSearchRequest, Model model) {
         User user = userService.search(userSearchRequest);
+        showMessage = true;
         model.addAttribute("userinfo", user);
+        model.addAttribute("showMessageFlag",showMessage);
         return "user/search";
     }
 
